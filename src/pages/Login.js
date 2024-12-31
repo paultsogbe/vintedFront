@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import axios from "axios";
-import Loader from "react-loader-spinner";
+//import loarder from "react-loader-spinner"
+import {Puff} from "react-loader-spinner";
+
 
 import "../assets/styles/login.css";
 
@@ -63,7 +65,7 @@ const Login = ({ setUser }) => {
         />
         <span className="signup-login-error-message">{errorMessage}</span>
         {isLoading ? (
-          <Loader type="Puff" color="#2CB1BA" height={40} width={40} />
+          <Puff color="#2CB1BA" height={40} width={40} />
         ) : (
           <button disabled={isLoading ? true : false} type="submit">
             Se connecter

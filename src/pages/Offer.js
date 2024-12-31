@@ -1,8 +1,9 @@
+
+
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-
 import axios from "axios";
-import Loader from "react-loader-spinner";
+import { Puff } from "react-loader-spinner"; 
 
 import "../assets/styles/offer.css";
 
@@ -30,13 +31,9 @@ const Offer = () => {
   }, [params.id]);
 
   return isLoading ? (
-    <Loader
-      className="home-loader"
-      type="Puff"
-      color="#2CB1BA"
-      height={80}
-      width={80}
-    />
+    <div className="offer-loader">
+      <Puff color="#2CB1BA" height={80} width={80} />
+    </div>
   ) : (
     <div className="offer-body">
       <div className="offer-container">
@@ -55,7 +52,7 @@ const Offer = () => {
             />
           )}
         </div>
-        <div className="offer-infos" style={{}}>
+        <div className="offer-infos">
           <div>
             <span className="offer-price">{data.product_price} €</span>
 
@@ -63,7 +60,7 @@ const Offer = () => {
               {data.product_details.map((elem, index) => {
                 const keys = Object.keys(elem);
                 return (
-                  <li key={index} className="">
+                  <li key={index}>
                     <span>{keys[0]}</span>
                     <span>{elem[keys[0]]}</span>
                   </li>

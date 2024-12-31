@@ -1,8 +1,12 @@
+
+
+
+
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import Card from "../components/Card";
 import tear from "../assets/images/tear.svg";
-import Loader from "react-loader-spinner";
+import { Puff } from "react-loader-spinner"; // Import  depuis react-loader-spinner
 
 import "../assets/styles/home.css";
 
@@ -10,13 +14,9 @@ const Home = ({ data, isLoading }) => {
   const navigate = useNavigate();
 
   return isLoading ? (
-    <Loader
-      className="home-loader"
-      type="Puff"
-      color="#2CB1BA"
-      height={80}
-      width={80}
-    />
+    <div className="home-loader">
+      <Puff color="#2CB1BA" height={80} width={80} />
+    </div>
   ) : (
     <>
       <div className="home-hero-bg-img">
@@ -46,3 +46,13 @@ const Home = ({ data, isLoading }) => {
 };
 
 export default Home;
+
+
+
+// export NODE_OPTIONS=--openssl-legacy-provider
+// npm start
+
+// "scripts": {
+//   "start": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
+//   ...
+// }
